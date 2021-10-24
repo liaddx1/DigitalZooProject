@@ -1,0 +1,27 @@
+﻿@model IEnumerable<DigitalZooProject.Models.Animal>
+
+@await Html.PartialAsync("_DropDownList")
+<div class="container">
+    <table>
+        <thead>
+            <tr>
+                <th style="text-align:center">Portrait</th>
+                <th style="text-align:center">Name</th>
+                <th style="text-align:center">Find Out More And Comment!</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var animal in Model)
+            {
+                <tr>
+                    <td align="center"><img src="~/Pictures/@animal.PicUri" height="100" width="100" alt="@animal.Name" /></td>
+                    <td align="center">@animal.Name</td>
+                    <td align="center">
+                        <a class="link_button" asp-action="AnimalPage" asp-route-id="@animal.AnimalId">More Details</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

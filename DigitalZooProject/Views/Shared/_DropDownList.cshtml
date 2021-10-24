@@ -1,0 +1,17 @@
+﻿
+<nav id="nav" role="navigation">
+    <ul>
+        <li aria-haspopup="true">
+            Choose a Category
+            <ul class="dropdown" name="categories" id="categories" aria-label="submenu">
+                <li><a asp-action="Index" asp-route-category="All">All</a></li>
+
+                @foreach (var category in ViewBag.Categories)
+                {
+                    <li value="@category.Name"><a asp-action="Index" asp-route-category="@category.Name">@category.Name</a></li>
+                }
+
+            </ul>
+        </li>
+    </ul>
+</nav>

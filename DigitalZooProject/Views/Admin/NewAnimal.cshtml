@@ -1,0 +1,45 @@
+﻿@model DigitalZooProject.Models.Animal
+
+<div align="center">
+    <h3>Add a New Animal</h3>
+    <div class="new-animal">
+        <form method="post" asp-controller="Admin" asp-action="AddNewAnimal" enctype="multipart/form-data">
+
+            <input type="text" asp-for="Name" placeholder="Animal Name" required />
+
+            <input type="number" asp-for="Age" value="1" placeholder="Animal Age" required />
+
+            <div>
+                <input asp-for="Picture" type="file" required>
+            </div>
+
+            <textarea id="new-animal-textarea" asp-for="Description" placeholder="Description" required></textarea>
+
+            <select asp-for="CategoryId" asp-items="@(new SelectList(@ViewBag.Categories, "CategoryId", "Name"))">
+                <option>Select Category</option>
+            </select>
+
+            <input type="submit" value="Insert a New Animal" />
+        </form>
+
+
+        <div id="error">
+            <p>@ViewBag.Message</p>
+            <div>
+                <span asp-validation-for="Name"></span>
+            </div>
+            <div>
+                <span asp-validation-for="Age"></span>
+            </div>
+            <div>
+                <span asp-validation-for="Picture"></span>
+            </div>
+            <div>
+                <span asp-validation-for="Description"></span>
+            </div>
+            <div>
+                <span asp-validation-for="CategoryId"></span>
+            </div>
+        </div>
+    </div>
+</div>

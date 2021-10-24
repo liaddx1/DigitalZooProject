@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Digital Zoo";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Style/style.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="~/Icons/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    @await Html.PartialAsync("_NavigationBarPartialView")
+    <h1>The Best Digital Zoo In Town!</h1>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

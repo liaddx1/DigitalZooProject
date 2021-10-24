@@ -1,0 +1,28 @@
+﻿@model IEnumerable<DigitalZooProject.Models.Animal>
+
+<div class="container">
+    <strong>The Two Most Highly Reted Pets Are:</strong>
+    <table>
+        <thead>
+            <tr>
+                <th style="text-align:center"></th>
+                <th style="text-align:center">Name</th>
+                <th style="text-align:center">Description</th>
+                <th style="text-align:center">Number of Comments</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var animal in Model)
+            {
+                <tr>
+                    <td align="center"><img src="~/Pictures/@animal.PicUri" height="100" width="100" alt="@animal.Name" /></td>
+                    <td align="center">@animal.Name</td>
+                    <td align="center">@animal.Description</td>
+                    <td align="center">@animal.Comments.Count</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
